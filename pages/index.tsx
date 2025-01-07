@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import mapboxgl, { Map } from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
-import { MAPBOX_KEY } from "./Consts";
+import { MAPBOX_KEY } from "../misc/Consts";
 
 interface MarkerData {
   lng: number;
