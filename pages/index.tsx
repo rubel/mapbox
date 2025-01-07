@@ -49,21 +49,19 @@ const Home: React.FC = () => {
       markerElement.style.width = "30px";
       markerElement.style.height = "30px";
       markerElement.style.backgroundColor = color;
-      markerElement.style.borderRadius = "50%"; // Make it circular
-      markerElement.style.border = "7px solid white"; // Optional: Adds a white border for visibility
+      markerElement.style.borderRadius = "50%";
+      markerElement.style.border = "7px solid white";
 
       const marker = new mapboxgl.Marker(markerElement)
         .setLngLat([lng, lat])
         .setPopup(new mapboxgl.Popup().setText(description))
         .addTo(map);
 
-      // Add click event to pan the map to the clicked marker
       marker.getElement().addEventListener("click", () => {
-        map.panTo([lng, lat], { duration: 1000 }); // Pan to the clicked marker with animation
+        map.panTo([lng, lat], { duration: 1000 });
       });
     });
 
-    // Update the bounds whenever the map is moved or zoomed
     const updateBounds = () => {
       const mapBounds = map.getBounds();
       setBounds({
@@ -74,11 +72,9 @@ const Home: React.FC = () => {
       });
     };
 
-    // Add event listeners for map movement and zoom
     map.on("move", updateBounds);
     map.on("zoom", updateBounds);
 
-    // Initial bounds update
     updateBounds();
 
     return () => {
