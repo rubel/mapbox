@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useEffect, useRef, useState } from "react";
-import mapboxgl, { Map, GeoJSONSource } from "mapbox-gl";
+import mapboxgl, { Map } from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { MAPBOX_KEY } from "../misc/Consts";
 import axios from "axios";
