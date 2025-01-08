@@ -211,10 +211,16 @@ const Home: React.FC = () => {
   useEffect(() => {
     if (map) {
       // Clear existing markers
-      map.getSource("markers")?.setData({
-        type: "FeatureCollection",
-        features: [],
-      });
+
+      const source = map.getSource("markers") as
+        | mapboxgl.GeoJSONSource
+        | undefined;
+      if (source) {
+        source.setData({
+          type: "FeatureCollection",
+          features: [],
+        });
+      }
 
       // Add SVG file path markers
       markers.forEach((marker) => {
